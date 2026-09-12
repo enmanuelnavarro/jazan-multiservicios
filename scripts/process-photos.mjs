@@ -28,11 +28,12 @@ const CATALOGO = {
 };
 
 /**
- * Imágenes de sección. `from` es la clave del catálogo de la que se recorta,
- * y `gravity` decide qué parte del encuadre se conserva.
+ * Imágenes de sección. `from` es la clave del archivo de origen del que se
+ * recorta (del catálogo o una propia como "hero"), `fallback` la alternativa
+ * si esa no existe, y `gravity` decide qué parte del encuadre se conserva.
  */
 const SECCIONES = [
-  { file: "general/hero.jpg", from: "cortina screen", w: 2000, h: 1250, gravity: "centre" },
+  { file: "general/hero.jpg", from: "hero", fallback: "cortina screen", w: 1672, h: 941, gravity: "centre" },
   { file: "general/shutters.jpg", from: "shutters", w: 1122, h: 1402, gravity: "centre" },
   { file: "general/automatizacion.jpg", from: "cortina motorizada", w: 1600, h: 1067, gravity: "centre" },
   { file: "general/contacto.jpg", from: "toldos", w: 1600, h: 1000, gravity: "centre" },
@@ -78,7 +79,7 @@ for (const [clave, slug] of Object.entries(CATALOGO)) {
 
 // Secciones: recortes apaisados a partir de las mismas fotos.
 for (const s of SECCIONES) {
-  const src = encontrar(s.from);
+  const src = encontrar(s.from) ?? (s.fallback ? encontrar(s.fallback) : undefined);
   if (!src) {
     console.warn(`  falta el origen de ${s.file}`);
     continue;
