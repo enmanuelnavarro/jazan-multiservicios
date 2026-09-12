@@ -25,7 +25,7 @@ const noise = `
   </filter>`;
 
 /** Lamas horizontales con luz que entra en diagonal. */
-function louvers({ w, h, base, slat, accent, angle = -18, gap = 46, soft = 0.5 }) {
+function louvers({ w, h, base, slat, accent, angle = -18, gap = 46, soft = 0.5, vig = 1 }) {
   const bars = [];
   const span = Math.ceil((w + h) / gap);
   for (let i = -span; i < span; i++) {
@@ -59,9 +59,9 @@ function louvers({ w, h, base, slat, accent, angle = -18, gap = 46, soft = 0.5 }
     </mask>
     <filter id="blur"><feGaussianBlur stdDeviation="${(gap * 0.06).toFixed(1)}"/></filter>
     <linearGradient id="vig" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="0" stop-color="#000" stop-opacity="${(0.3 * vig).toFixed(2)}"/>
       <stop offset="0.45" stop-color="#000" stop-opacity="0"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#000" stop-opacity="${(0.45 * vig).toFixed(2)}"/>
     </linearGradient>
     ${noise}
   </defs>
@@ -76,7 +76,7 @@ function louvers({ w, h, base, slat, accent, angle = -18, gap = 46, soft = 0.5 }
 }
 
 /** Bandas alternas translúcidas/opacas, tipo cortina zebra. */
-function bands({ w, h, base, dark, accent, band = 58 }) {
+function bands({ w, h, base, dark, accent, band = 58, vig = 1 }) {
   const rows = [];
   for (let y = 0; y < h + band; y += band * 2) {
     rows.push(
@@ -93,7 +93,7 @@ function bands({ w, h, base, dark, accent, band = 58 }) {
     <linearGradient id="light" x1="0" y1="0" x2="1" y2="0.6">
       <stop offset="0" stop-color="${accent}" stop-opacity="0.4"/>
       <stop offset="0.6" stop-color="${accent}" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#000" stop-opacity="${(0.2 * vig).toFixed(2)}"/>
     </linearGradient>
     ${noise}
   </defs>
@@ -105,7 +105,7 @@ function bands({ w, h, base, dark, accent, band = 58 }) {
 }
 
 /** Trama fina, tipo tela screen o malla. */
-function mesh({ w, h, base, dark, accent, step = 9 }) {
+function mesh({ w, h, base, dark, accent, step = 9, vig = 1 }) {
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
   <defs>
@@ -125,12 +125,13 @@ function mesh({ w, h, base, dark, accent, step = 9 }) {
   <rect width="${w}" height="${h}" fill="url(#bg)"/>
   <rect width="${w}" height="${h}" fill="url(#sun)"/>
   <rect width="${w}" height="${h}" fill="url(#grid)" opacity="0.5"/>
+  <rect width="${w}" height="${h}" fill="#000" opacity="${(0.12 * vig).toFixed(2)}"/>
   <rect width="${w}" height="${h}" filter="url(#grain)" opacity="0.05"/>
 </svg>`;
 }
 
 /** Caída vertical de tela, con pliegues suaves. */
-function drape({ w, h, base, dark, accent, folds = 14 }) {
+function drape({ w, h, base, dark, accent, folds = 14, vig = 1 }) {
   const cols = [];
   const step = w / folds;
   for (let i = 0; i < folds; i++) {
@@ -158,9 +159,9 @@ function drape({ w, h, base, dark, accent, folds = 14 }) {
       <stop offset="1" stop-color="${accent}" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#000" stop-opacity="0.4"/>
+      <stop offset="0" stop-color="#000" stop-opacity="${(0.4 * vig).toFixed(2)}"/>
       <stop offset="0.4" stop-color="#000" stop-opacity="0"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#000" stop-opacity="${(0.42 * vig).toFixed(2)}"/>
     </linearGradient>
     <filter id="soften"><feGaussianBlur stdDeviation="${(step * 0.12).toFixed(1)}"/></filter>
     ${cols.join("")}
@@ -182,16 +183,18 @@ const targets = [
   ["general/contacto.jpg", 1600, 1000, (d) => louvers({ ...d, base: "#e6e5e2", slat: "#c9c8c5", accent: "#8c8c8c", gap: 52, angle: -10, soft: 0.45 })],
   ["general/og.jpg", 1200, 630, (d) => louvers({ ...d, base: "#17181a", slat: "#0b0c0d", accent: warm, gap: 40, angle: -14 })],
 
-  // Catálogo de soluciones (4:5)
-  ["soluciones/shutters.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#1f2023", slat: "#0c0d0e", accent: warm, gap: 48, angle: 0, soft: 0.85 })],
-  ["soluciones/cortinas-zebra.jpg", 1200, 1500, (d) => bands({ ...d, base: "#3a3b3d", dark: "#121314", accent: "#dcdbd8", band: 52 })],
-  ["soluciones/cortinas-screen.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#464749", dark: "#191a1c", accent: "#dedddb", step: 10 })],
-  ["soluciones/blackout.jpg", 1200, 1500, (d) => drape({ ...d, base: "#161718", dark: "#08090a", accent: "#6a6a6b", folds: 12 })],
-  ["soluciones/cortinas-perma.jpg", 1200, 1500, (d) => drape({ ...d, base: "#545557", dark: "#1e1f20", accent: "#d5d4d1", folds: 16 })],
-  ["soluciones/cortinas-motorizadas.jpg", 1200, 1500, (d) => drape({ ...d, base: "#2a2c2f", dark: "#0d0e10", accent: "#c8c7c4", folds: 10 })],
-  ["soluciones/cortinas-hoteleras.jpg", 1200, 1500, (d) => bands({ ...d, base: "#2b2c2d", dark: "#111213", accent: "#cecdca", band: 70 })],
-  ["soluciones/toldos.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#5e5f61", slat: "#242527", accent: "#e8e7e4", gap: 70, angle: -32, soft: 0.75 })],
-  ["soluciones/mallas.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#36383a", dark: "#101112", accent: "#c6c5c2", step: 7 })],
+  // Catálogo de soluciones (4:5).
+  // Los valores tonales se alternan a propósito —claro, medio, oscuro— para
+  // que la grilla no se lea como un bloque uniforme mientras no haya fotos.
+  ["soluciones/shutters.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#23252a", slat: "#0c0d0e", accent: "#e9e8e5", gap: 48, angle: 0, soft: 0.95 })],
+  ["soluciones/cortinas-zebra.jpg", 1200, 1500, (d) => bands({ ...d, base: "#efeeec", dark: "#4b4c4e", accent: "#ffffff", band: 52, vig: 0.2 })],
+  ["soluciones/cortinas-screen.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#8a8987", dark: "#3a3b3d", accent: "#f2f1ef", step: 10, vig: 0.4 })],
+  ["soluciones/blackout.jpg", 1200, 1500, (d) => drape({ ...d, base: "#17181a", dark: "#08090a", accent: "#5a5a5b", folds: 12 })],
+  ["soluciones/cortinas-perma.jpg", 1200, 1500, (d) => drape({ ...d, base: "#dedcd8", dark: "#8d8b88", accent: "#ffffff", folds: 16, vig: 0.25 })],
+  ["soluciones/cortinas-motorizadas.jpg", 1200, 1500, (d) => drape({ ...d, base: "#4a4d51", dark: "#17191c", accent: "#dcdbd8", folds: 10, vig: 0.6 })],
+  ["soluciones/cortinas-hoteleras.jpg", 1200, 1500, (d) => bands({ ...d, base: "#c9c7c3", dark: "#2b2c2d", accent: "#ffffff", band: 70, vig: 0.3 })],
+  ["soluciones/toldos.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#b8b6b2", slat: "#5e5f61", accent: "#ffffff", gap: 70, angle: -32, soft: 0.9, vig: 0.35 })],
+  ["soluciones/mallas.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#3a3d40", dark: "#0f1011", accent: "#c6c5c2", step: 7 })],
 ];
 
 for (const [name, w, h, make] of targets) {

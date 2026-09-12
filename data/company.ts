@@ -48,7 +48,7 @@ export const company = {
     query: "Calle Balilo Gómez 10, La Vega, República Dominicana",
     link: "https://www.google.com/maps/search/?api=1&query=Calle+Balilo+G%C3%B3mez+10%2C+La+Vega%2C+Rep%C3%BAblica+Dominicana",
     embedUrl:
-      "https://www.google.com/maps?q=Calle%20Balilo%20G%C3%B3mez%2010%2C%20La%20Vega%2C%20Rep%C3%BAblica%20Dominicana&output=embed",
+      "https://www.google.com/maps?q=Calle%20Balilo%20G%C3%B3mez%2010%2C%20La%20Vega%2C%20Rep%C3%BAblica%20Dominicana&z=17&output=embed",
   },
 
   hours: {

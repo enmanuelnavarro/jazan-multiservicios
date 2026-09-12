@@ -15,7 +15,7 @@ export function MapEmbed({ className }: { className?: string }) {
         src={company.maps.embedUrl}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        className="h-full min-h-[320px] w-full border-0 grayscale-[35%]"
+        className="h-full min-h-[380px] w-full border-0 sm:min-h-[440px]"
       />
     </div>
   );

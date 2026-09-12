@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink"
     >
       <Image
         src="/images/general/hero.jpg"
@@ -20,10 +20,10 @@ export function Hero() {
       {/* Degradado para asegurar el contraste del texto sobre la imagen. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25"
+        className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-ink/40"
       />
 
-      <Container className="relative z-10 pb-20 pt-36 sm:pb-28">
+      <Container className="relative z-10 pt-28 pb-16 sm:pt-24 sm:pb-20">
         <p className="eyebrow animate-[reveal_0.9s_cubic-bezier(0.22,1,0.36,1)_both] text-paper/55">
           Residencial • Comercial
         </p>

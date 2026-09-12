@@ -1,12 +1,21 @@
 import { company } from "./company";
 import { solutions } from "./solutions";
+import { projects } from "./projects";
 
-/** Enlaces del menú principal. El orden es el que se ve en el header. */
+/**
+ * Enlaces del menú principal. El orden es el que se ve en el header.
+ *
+ * "Proyectos" aparece automáticamente en cuanto se añade la primera foto real
+ * a /data/projects.ts; mientras la galería esté vacía no se muestra, para no
+ * llevar al visitante a una sección sin contenido.
+ */
 export const navigation = [
   { label: "Inicio", href: "/#inicio" },
   { label: "Soluciones", href: "/#soluciones" },
   { label: "Shutters", href: "/#shutters" },
-  { label: "Proyectos", href: "/#proyectos" },
+  ...(projects.length > 0
+    ? [{ label: "Proyectos", href: "/#proyectos" }]
+    : []),
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Contacto", href: "/#contacto" },
 ];
