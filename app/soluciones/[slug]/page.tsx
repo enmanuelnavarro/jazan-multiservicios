@@ -156,8 +156,8 @@ export default async function SolutionPage({ params }: Params) {
                   <Image
                     src={item.image}
                     alt={item.name}
-                    width={1200}
-                    height={1500}
+                    width={1122}
+                    height={1402}
                     sizes="(min-width: 640px) 30vw, 90vw"
                     className="aspect-4/5 w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />

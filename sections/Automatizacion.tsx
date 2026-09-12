@@ -52,8 +52,8 @@ export function Automatizacion() {
             <Image
               src="/images/general/automatizacion.jpg"
               alt="Cortinas motorizadas cerrándose sobre un ventanal"
-              width={1800}
-              height={1200}
+              width={1600}
+              height={1067}
               sizes="(min-width: 1024px) 55vw, 100vw"
               className="aspect-3/2 w-full object-cover"
             />

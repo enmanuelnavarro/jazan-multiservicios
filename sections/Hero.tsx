@@ -17,10 +17,14 @@ export function Hero() {
         quality={82}
         className="object-cover"
       />
-      {/* Degradado para asegurar el contraste del texto sobre la imagen. */}
+      {/*
+        Velo para el contraste del texto. En móvil cae de abajo hacia arriba
+        (el texto ocupa todo el ancho) y a partir de sm se vuelve horizontal,
+        de modo que la fotografía queda limpia en la mitad derecha.
+      */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-ink/40"
+        className="absolute inset-0 bg-[linear-gradient(to_top,rgba(17,17,17,0.92)_0%,rgba(17,17,17,0.7)_45%,rgba(17,17,17,0.35)_100%)] sm:bg-[linear-gradient(to_right,rgba(17,17,17,0.9)_0%,rgba(17,17,17,0.72)_34%,rgba(17,17,17,0.3)_68%,rgba(17,17,17,0.08)_100%)]"
       />
 
       <Container className="relative z-10 pt-28 pb-16 sm:pt-24 sm:pb-20">

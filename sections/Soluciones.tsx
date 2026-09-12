@@ -33,8 +33,8 @@ export function Soluciones() {
                 <Image
                   src={solution.image}
                   alt={`${solution.name} — ${solution.summary}`}
-                  width={1200}
-                  height={1500}
+                  width={1122}
+                  height={1402}
                   sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
                   className="aspect-4/5 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />

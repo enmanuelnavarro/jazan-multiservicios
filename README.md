@@ -80,11 +80,23 @@ queda declarado en `app/globals.css` como `--color-brand-red` pero sin usar.
 
 ## Imágenes
 
-Las imágenes actuales de `public/images/` son composiciones abstractas de luz y
-lamas en escala de grises, generadas con `scripts/generate-images.mjs`. **Son
-temporales**: para sustituirlas por fotografías reales basta con sobrescribir
-los archivos con el mismo nombre y las mismas proporciones (4:5 en el
-catálogo).
+Las fotografías de producto viven en `public/images/soluciones/` (una por
+producto, 4:5) y `public/images/general/` (hero y secciones).
+
+Para reemplazarlas, hay un script que hace todo el trabajo de recorte y
+optimización:
+
+```bash
+node scripts/process-photos.mjs <carpeta-con-las-fotos>
+```
+
+Espera un archivo por producto, nombrado como el producto (`Shutters.png`,
+`Cortina Zebra.png`, `toldos.png`…). Recorta el catálogo a 4:5, genera los
+recortes apaisados del hero y de las secciones, y exporta todo a JPEG
+optimizado. Tras ejecutarlo, `npm run build` y listo.
+
+`scripts/generate-images.mjs` queda como respaldo: genera composiciones
+abstractas en escala de grises para cualquier hueco que no tenga fotografía.
 
 ## Formulario de cotización
 
