@@ -34,7 +34,8 @@ sections/            Secciones de la home
 data/                Contenido editable sin tocar componentes
 lib/                 Utilidades (WhatsApp, SEO, validación)
 public/images/       Imágenes del sitio
-scripts/             Generador de las imágenes de apoyo
+scripts/             Procesado de fotos y generador de respaldo
+design/              Originales a resolución completa (no se publica)
 ```
 
 ## Qué editar para cambiar contenido
@@ -83,11 +84,12 @@ queda declarado en `app/globals.css` como `--color-brand-red` pero sin usar.
 Las fotografías de producto viven en `public/images/soluciones/` (una por
 producto, 4:5) y `public/images/general/` (hero y secciones).
 
-Para reemplazarlas, hay un script que hace todo el trabajo de recorte y
-optimización:
+Los originales a resolución completa están archivados en `design/originales/`
+(ver `design/README.md`). Para regenerar todo a partir de ellos, o desde una
+carpeta con fotos nuevas:
 
 ```bash
-node scripts/process-photos.mjs <carpeta-con-las-fotos>
+node scripts/process-photos.mjs design/originales
 ```
 
 Espera un archivo por producto, nombrado como el producto (`Shutters.png`,
