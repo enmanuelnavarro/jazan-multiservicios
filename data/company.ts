@@ -57,6 +57,15 @@ export const company = {
   },
 
   /**
+   * Crédito de la agencia que desarrolla el sitio, mostrado al pie.
+   * Poner `name` en cadena vacía lo oculta por completo.
+   */
+  credits: {
+    name: "Netoutmedia",
+    url: "https://netoutmedia.com",
+  },
+
+  /**
    * Redes sociales. Dejar el `url` vacío oculta el ícono automáticamente,
    * así que basta con rellenar el enlace cuando el perfil esté listo.
    */

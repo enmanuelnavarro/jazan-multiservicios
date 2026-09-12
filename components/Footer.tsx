@@ -100,9 +100,20 @@ export function Footer() {
           <p>
             © {year} {company.name}. Todos los derechos reservados.
           </p>
-          <p>
-            {company.address.city}, {company.address.country}
-          </p>
+          {company.credits.name && (
+            <p>
+              ©&nbsp;{year}{" "}
+              <a
+                href={company.credits.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-4 transition-colors hover:text-paper hover:underline"
+              >
+                {company.credits.name}
+              </a>
+              . Todos los derechos reservados.
+            </p>
+          )}
         </div>
       </Container>
     </footer>
