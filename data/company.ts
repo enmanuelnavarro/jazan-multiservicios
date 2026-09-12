@@ -61,7 +61,11 @@ export const company = {
    * así que basta con rellenar el enlace cuando el perfil esté listo.
    */
   social: [
-    { name: "Instagram", url: "", handle: "" },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/jazanmultiservicios/",
+      handle: "@jazanmultiservicios",
+    },
     { name: "Facebook", url: "", handle: "" },
     { name: "TikTok", url: "", handle: "" },
   ],
