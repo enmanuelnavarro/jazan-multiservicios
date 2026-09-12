@@ -24,7 +24,7 @@ export function Hero() {
       />
 
       <Container className="relative z-10 pb-20 pt-36 sm:pb-28">
-        <p className="eyebrow animate-[reveal_0.9s_cubic-bezier(0.22,1,0.36,1)_both] text-brass-soft">
+        <p className="eyebrow animate-[reveal_0.9s_cubic-bezier(0.22,1,0.36,1)_both] text-paper/55">
           Residencial • Comercial
         </p>
 

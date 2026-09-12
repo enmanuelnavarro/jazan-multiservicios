@@ -59,12 +59,32 @@ reales de trabajos de Jazán. Copia las fotos en `public/images/proyectos/`,
 añade una entrada por foto y la sección mostrará automáticamente los filtros,
 la grilla y el visor ampliado.
 
+## Marca
+
+El logotipo oficial vive en `public/brand/`:
+
+- `jazan-logo.svg` — isotipo + marca denominativa (lockup horizontal)
+- `jazan-isotipo.svg` — solo el isotipo
+
+Ambos son monocromos y heredan `currentColor`, por lo que la misma pieza sirve
+en blanco sobre fondo oscuro y en negro sobre fondo claro. El componente
+`components/Logo.tsx` lleva el trazado en línea para poder cambiar de color sin
+descargar otro archivo.
+
+El favicon (`app/icon.svg`) y el icono de iOS (`app/apple-icon.png`) se
+derivaron del mismo vector: círculo negro con el isotipo en blanco.
+
+Colores del manual de marca: negro `#000000`, blanco `#FFFFFF`, gris `#8C8C8C`
+y rojo corporativo `#E4002B`. La interfaz es deliberadamente monocroma; el rojo
+queda declarado en `app/globals.css` como `--color-brand-red` pero sin usar.
+
 ## Imágenes
 
 Las imágenes actuales de `public/images/` son composiciones abstractas de luz y
-lamas generadas con `scripts/generate-images.mjs`. **Son temporales**: para
-sustituirlas por fotografías reales basta con sobrescribir los archivos con el
-mismo nombre y las mismas proporciones (4:5 en el catálogo).
+lamas en escala de grises, generadas con `scripts/generate-images.mjs`. **Son
+temporales**: para sustituirlas por fotografías reales basta con sobrescribir
+los archivos con el mismo nombre y las mismas proporciones (4:5 en el
+catálogo).
 
 ## Formulario de cotización
 

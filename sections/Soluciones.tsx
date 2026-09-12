@@ -50,7 +50,7 @@ export function Soluciones() {
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
                 <Link
                   href={`/soluciones/${solution.slug}`}
-                  className="inline-flex items-center gap-1.5 font-medium text-ink transition-colors hover:text-brass"
+                  className="inline-flex items-center gap-1.5 font-medium text-ink transition-colors hover:text-ink"
                 >
                   Más información
                   <ArrowIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -59,7 +59,7 @@ export function Soluciones() {
                   href={whatsappForSolution(solution.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted underline-offset-4 transition-colors hover:text-brass hover:underline"
+                  className="text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
                   Cotizar
                 </a>

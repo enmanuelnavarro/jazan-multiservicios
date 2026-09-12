@@ -21,7 +21,7 @@ export function Shutters() {
         <div className="flex items-center px-6 py-24 sm:px-12 lg:px-16 xl:px-24">
           <div className="max-w-xl">
             <Reveal>
-              <p className="eyebrow text-brass-soft">Shutters</p>
+              <p className="eyebrow text-paper/55">Shutters</p>
               <h2 className="mt-5 font-display text-[clamp(2.1rem,4.2vw,3.4rem)] leading-[1.06] tracking-[-0.01em] text-paper text-balance">
                 Privacidad cuando la necesitas.
               </h2>

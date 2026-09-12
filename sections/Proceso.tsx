@@ -21,7 +21,7 @@ export function Proceso() {
               delay={index * 90}
               className="flex flex-col bg-paper p-8 lg:p-10"
             >
-              <span className="font-display text-4xl text-brass/70">
+              <span className="font-display text-4xl text-ink/20">
                 {step.number}
               </span>
               <h3 className="mt-8 font-display text-xl leading-snug text-ink">

@@ -13,7 +13,7 @@ export function Contacto() {
         <div id="cotizar" className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-5">
             <Reveal>
-              <p className="eyebrow text-brass">Contacto</p>
+              <p className="eyebrow text-muted">Contacto</p>
               <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.07] tracking-[-0.01em] text-ink text-balance">
                 Solicita tu cotización
               </h2>
@@ -38,7 +38,7 @@ export function Contacto() {
                 <h3 className="eyebrow text-muted">Teléfono / WhatsApp</h3>
                 <a
                   href={telUrl}
-                  className="mt-2 block text-ink transition-colors hover:text-brass"
+                  className="mt-2 block text-ink transition-colors hover:text-ink"
                 >
                   {company.phoneDisplay}
                 </a>
@@ -47,7 +47,7 @@ export function Contacto() {
                 <h3 className="eyebrow text-muted">Correo</h3>
                 <a
                   href={mailUrl}
-                  className="mt-2 block text-ink transition-colors hover:text-brass"
+                  className="mt-2 block text-ink transition-colors hover:text-ink"
                 >
                   {company.email}
                 </a>
@@ -85,7 +85,7 @@ export function Contacto() {
             href={company.maps.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-muted underline-offset-4 transition-colors hover:text-brass hover:underline"
+            className="text-sm text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
           >
             Abrir en Google Maps
           </a>

@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="flex min-h-[80vh] items-center bg-ink">
       <Container>
-        <p className="eyebrow text-brass-soft">Error 404</p>
+        <p className="eyebrow text-paper/55">Error 404</p>
         <h1 className="mt-5 max-w-2xl font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] text-paper text-balance">
           No encontramos la página que buscas.
         </h1>

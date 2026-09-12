@@ -2,14 +2,18 @@
 
 @theme {
   /* Paleta: neutros cálidos de obra + un latón discreto como único acento. */
-  --color-paper: #f7f5f1;
-  --color-paper-deep: #efece5;
-  --color-ink: #16181b;
-  --color-ink-soft: #3a3d41;
-  --color-muted: #6f6d67;
-  --color-line: #ddd8cf;
-  --color-brass: #a8813f;
-  --color-brass-soft: #c4a675;
+  --color-paper: #f7f6f4;
+  --color-paper-deep: #eceae7;
+  --color-ink: #111111;
+  --color-ink-soft: #33363a;
+  --color-muted: #6e6e6e;
+  --color-line: #dcdad5;
+  /* Acento monocromo: el detalle se marca con negro, no con color. */
+  --color-accent: #111111;
+  --color-accent-soft: #8c8c8c;
+  /* Rojo corporativo del manual de marca. Reservado: no se usa en la
+     interfaz, queda disponible por si hace falta un acento puntual. */
+  --color-brand-red: #e4002b;
   --color-whatsapp: #25d366;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -57,7 +61,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brass);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
   }
 

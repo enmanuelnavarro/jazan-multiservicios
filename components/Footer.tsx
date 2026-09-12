@@ -29,7 +29,7 @@ export function Footer() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-paper/60 underline-offset-4 transition-colors hover:text-brass-soft hover:underline"
+                      className="text-sm text-paper/60 underline-offset-4 transition-colors hover:text-paper hover:underline"
                     >
                       {social.name}
                     </a>

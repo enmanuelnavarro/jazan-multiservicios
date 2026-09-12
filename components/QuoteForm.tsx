@@ -70,7 +70,7 @@ export function QuoteForm({ defaultProduct }: { defaultProduct?: string }) {
   if (status === "sent") {
     return (
       <div className="flex min-h-[420px] flex-col justify-center">
-        <p className="eyebrow text-brass">Solicitud enviada</p>
+        <p className="eyebrow text-muted">Solicitud enviada</p>
         <h3 className="mt-5 font-display text-3xl leading-tight text-ink">
           Gracias, {data.name.split(" ")[0]}.
         </h3>

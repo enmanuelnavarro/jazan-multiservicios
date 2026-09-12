@@ -8,14 +8,15 @@
  *
  *   node scripts/generate-images.mjs
  */
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import sharp from "sharp";
 
 const OUT = join(process.cwd(), "public", "images");
 
-const ink = "#16181b";
-const warm = "#d8b88a";
+const ink = "#111111";
+// Luz neutra: la marca es monocroma, sin tonos cálidos.
+const warm = "#d9d7d3";
 
 const noise = `
   <filter id="grain">
@@ -175,22 +176,22 @@ function drape({ w, h, base, dark, accent, folds = 14 }) {
 
 const targets = [
   // Fondos generales
-  ["general/hero.jpg", 2400, 1500, (d) => louvers({ ...d, base: "#1b1d20", slat: "#0f1113", accent: warm, gap: 64, angle: -14 })],
-  ["general/shutters.jpg", 1400, 1750, (d) => louvers({ ...d, base: "#24262a", slat: "#121416", accent: warm, gap: 54, angle: 0, soft: 0.8 })],
-  ["general/automatizacion.jpg", 1800, 1200, (d) => drape({ ...d, base: "#2a2c30", dark: "#121417", accent: "#c8ab84", folds: 18 })],
-  ["general/contacto.jpg", 1600, 1000, (d) => louvers({ ...d, base: "#e6e1d8", slat: "#cfc7b9", accent: "#a8813f", gap: 52, angle: -10, soft: 0.45 })],
-  ["general/og.jpg", 1200, 630, (d) => louvers({ ...d, base: "#1b1d20", slat: "#0f1113", accent: warm, gap: 40, angle: -14 })],
+  ["general/hero.jpg", 2400, 1500, (d) => louvers({ ...d, base: "#17181a", slat: "#0b0c0d", accent: warm, gap: 64, angle: -14 })],
+  ["general/shutters.jpg", 1400, 1750, (d) => louvers({ ...d, base: "#202124", slat: "#0e0f10", accent: warm, gap: 54, angle: 0, soft: 0.8 })],
+  ["general/automatizacion.jpg", 1800, 1200, (d) => drape({ ...d, base: "#26282b", dark: "#0e1011", accent: "#cfcecb", folds: 18 })],
+  ["general/contacto.jpg", 1600, 1000, (d) => louvers({ ...d, base: "#e6e5e2", slat: "#c9c8c5", accent: "#8c8c8c", gap: 52, angle: -10, soft: 0.45 })],
+  ["general/og.jpg", 1200, 630, (d) => louvers({ ...d, base: "#17181a", slat: "#0b0c0d", accent: warm, gap: 40, angle: -14 })],
 
   // Catálogo de soluciones (4:5)
-  ["soluciones/shutters.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#23252a", slat: "#101214", accent: warm, gap: 48, angle: 0, soft: 0.85 })],
-  ["soluciones/cortinas-zebra.jpg", 1200, 1500, (d) => bands({ ...d, base: "#3c3a36", dark: "#16181b", accent: "#e0c398", band: 52 })],
-  ["soluciones/cortinas-screen.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#4a463f", dark: "#1d1f22", accent: "#e3c69b", step: 10 })],
-  ["soluciones/blackout.jpg", 1200, 1500, (d) => drape({ ...d, base: "#1a1c1f", dark: "#0b0c0e", accent: "#6d6a64", folds: 12 })],
-  ["soluciones/cortinas-perma.jpg", 1200, 1500, (d) => drape({ ...d, base: "#5b5347", dark: "#22201d", accent: "#d9c3a2", folds: 16 })],
-  ["soluciones/cortinas-motorizadas.jpg", 1200, 1500, (d) => drape({ ...d, base: "#2d3136", dark: "#101317", accent: "#cbb695", folds: 10 })],
-  ["soluciones/cortinas-hoteleras.jpg", 1200, 1500, (d) => bands({ ...d, base: "#2f2b27", dark: "#14120f", accent: "#d2b184", band: 70 })],
-  ["soluciones/toldos.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#6a5a45", slat: "#2b241b", accent: "#f0d4a8", gap: 70, angle: -32, soft: 0.75 })],
-  ["soluciones/mallas.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#3a3d40", dark: "#141618", accent: "#cbb08a", step: 7 })],
+  ["soluciones/shutters.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#1f2023", slat: "#0c0d0e", accent: warm, gap: 48, angle: 0, soft: 0.85 })],
+  ["soluciones/cortinas-zebra.jpg", 1200, 1500, (d) => bands({ ...d, base: "#3a3b3d", dark: "#121314", accent: "#dcdbd8", band: 52 })],
+  ["soluciones/cortinas-screen.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#464749", dark: "#191a1c", accent: "#dedddb", step: 10 })],
+  ["soluciones/blackout.jpg", 1200, 1500, (d) => drape({ ...d, base: "#161718", dark: "#08090a", accent: "#6a6a6b", folds: 12 })],
+  ["soluciones/cortinas-perma.jpg", 1200, 1500, (d) => drape({ ...d, base: "#545557", dark: "#1e1f20", accent: "#d5d4d1", folds: 16 })],
+  ["soluciones/cortinas-motorizadas.jpg", 1200, 1500, (d) => drape({ ...d, base: "#2a2c2f", dark: "#0d0e10", accent: "#c8c7c4", folds: 10 })],
+  ["soluciones/cortinas-hoteleras.jpg", 1200, 1500, (d) => bands({ ...d, base: "#2b2c2d", dark: "#111213", accent: "#cecdca", band: 70 })],
+  ["soluciones/toldos.jpg", 1200, 1500, (d) => louvers({ ...d, base: "#5e5f61", slat: "#242527", accent: "#e8e7e4", gap: 70, angle: -32, soft: 0.75 })],
+  ["soluciones/mallas.jpg", 1200, 1500, (d) => mesh({ ...d, base: "#36383a", dark: "#101112", accent: "#c6c5c2", step: 7 })],
 ];
 
 for (const [name, w, h, make] of targets) {
@@ -201,13 +202,5 @@ for (const [name, w, h, make] of targets) {
   console.log("→", name);
 }
 
-// Favicon / marca: lamas sobre fondo oscuro.
-const markSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#16181b"/>
-  <rect x="14" y="16" width="36" height="6" rx="3" fill="#f7f5f1"/>
-  <rect x="14" y="29" width="36" height="6" rx="3" fill="#f7f5f1" opacity="0.62"/>
-  <rect x="14" y="42" width="36" height="6" rx="3" fill="#f7f5f1" opacity="0.32"/>
-</svg>`;
-await writeFile(join(process.cwd(), "app", "icon.svg"), markSvg);
-await sharp(Buffer.from(markSvg)).resize(180, 180).png().toFile(join(process.cwd(), "app", "apple-icon.png"));
-console.log("→ app/icon.svg + app/apple-icon.png");
+// El favicon y el logotipo NO se generan aquí: provienen del logotipo oficial
+// y viven en app/icon.svg, app/apple-icon.png y public/brand/.

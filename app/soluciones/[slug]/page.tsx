@@ -66,7 +66,7 @@ export default async function SolutionPage({ params }: Params) {
               Soluciones
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-brass-soft">{solution.name}</span>
+            <span className="text-paper/55">{solution.name}</span>
           </nav>
           <h1 className="mt-6 max-w-3xl font-display text-[clamp(2.4rem,6vw,4.6rem)] leading-[1.04] tracking-[-0.02em] text-paper text-balance">
             {solution.name}
@@ -91,7 +91,7 @@ export default async function SolutionPage({ params }: Params) {
                     key={highlight}
                     className="flex items-baseline gap-4 py-5 text-[0.98rem] text-ink-soft"
                   >
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-brass" />
+                    <span className="h-1 w-1 shrink-0 rounded-full bg-ink" />
                     {highlight}
                   </li>
                 ))}
@@ -130,7 +130,7 @@ export default async function SolutionPage({ params }: Params) {
         <Container>
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
             <Reveal className="lg:col-span-5">
-              <p className="eyebrow text-brass">Cotización</p>
+              <p className="eyebrow text-muted">Cotización</p>
               <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.07] text-ink text-balance">
                 Pide tu propuesta de {solution.name.toLowerCase()}
               </h2>

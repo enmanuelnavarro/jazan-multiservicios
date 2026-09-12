@@ -14,8 +14,8 @@ const variants: Record<Variant, string> = {
   light:
     "border border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink",
   whatsapp: "bg-whatsapp text-[#07301a] hover:brightness-105",
-  ghost: "text-ink hover:text-brass",
-  paper: "bg-paper text-ink hover:bg-brass-soft",
+  ghost: "text-ink hover:text-ink",
+  paper: "bg-paper text-ink hover:bg-paper-deep",
 };
 
 const sizes: Record<Size, string> = {

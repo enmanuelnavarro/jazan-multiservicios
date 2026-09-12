@@ -12,7 +12,7 @@ export function Automatizacion() {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Reveal>
-              <p className="eyebrow text-brass">Automatización</p>
+              <p className="eyebrow text-muted">Automatización</p>
               <h2 className="mt-5 font-display text-[clamp(2.1rem,4.2vw,3.4rem)] leading-[1.06] tracking-[-0.01em] text-ink text-balance">
                 Tu espacio. Ahora más inteligente.
               </h2>
@@ -31,7 +31,7 @@ export function Automatizacion() {
                   delay={index * 60}
                   className="flex items-baseline gap-3 border-t border-line pt-4 text-[0.95rem] text-ink-soft"
                 >
-                  <span className="h-1 w-1 shrink-0 translate-y-[-0.15em] rounded-full bg-brass" />
+                  <span className="h-1 w-1 shrink-0 translate-y-[-0.15em] rounded-full bg-ink" />
                   {benefit}
                 </Reveal>
               ))}

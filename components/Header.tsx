@@ -69,7 +69,7 @@ export function Header() {
               className={cn(
                 "text-sm transition-colors",
                 scrolled
-                  ? "text-ink-soft hover:text-brass"
+                  ? "text-ink-soft hover:text-ink"
                   : "text-paper/80 hover:text-paper",
               )}
             >
