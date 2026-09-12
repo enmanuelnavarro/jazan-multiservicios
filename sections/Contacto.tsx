@@ -8,7 +8,7 @@ import { mailUrl, telUrl, whatsappUrl } from "@/lib/whatsapp";
 
 export function Contacto() {
   return (
-    <section id="contacto" className="bg-paper py-section">
+    <section id="contacto" className="bg-paper pt-section">
       <Container>
         <div id="cotizar" className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-5">
@@ -78,9 +78,9 @@ export function Contacto() {
         </div>
       </Container>
 
+      {/* El mapa cierra la página a sangre, pegado al pie oscuro. */}
       <Reveal className="mt-24">
-        <MapEmbed />
-        <Container className="mt-4">
+        <Container className="mb-4">
           <a
             href={company.maps.link}
             target="_blank"
@@ -90,6 +90,7 @@ export function Contacto() {
             Abrir en Google Maps
           </a>
         </Container>
+        <MapEmbed className="block" />
       </Reveal>
     </section>
   );
